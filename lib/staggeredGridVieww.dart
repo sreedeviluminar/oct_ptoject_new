@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -12,7 +11,8 @@ void main() {
 class Stg_Grid extends StatelessWidget {
    var ccount =[2,2,2,2,2,2];
    var mcount=[3,2,3,1,3,2];
-  @override
+
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
