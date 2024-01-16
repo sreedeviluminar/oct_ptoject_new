@@ -66,7 +66,33 @@ class MainPageAnim extends StatelessWidget {
             height: 30,
           ),
           ElevatedButton(
-              onPressed: () {}, child: const Text("Scale Transition")),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return Second_Page_Animation();
+                    },
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      // Example of ScaleTransition for this transition
+                      return ScaleTransition(
+                        scale: Tween<double>(
+                          begin: 0.0,
+                          end: 1.0,
+                        ).animate(CurvedAnimation(
+                          parent: animation,
+                          curve: Curves.fastOutSlowIn,
+                        )),
+                        child: child,
+                      );
+                    },
+                    transitionDuration: const Duration(
+                        milliseconds: 600), // Set your duration
+                  ),
+                );
+              },
+              child: const Text("Scale Animation")),
         ],
       ),
     );
