@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oct_ptoject_new/firebase_database/email_password_auth/firebase_functions.dart';
 import 'package:oct_ptoject_new/firebase_database/email_password_auth/login.dart';
 
 class Fire_Register extends StatelessWidget {
@@ -36,8 +37,26 @@ class Fire_Register extends StatelessWidget {
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.pinkAccent, shape: StadiumBorder()),
-                onPressed: () {},
+                onPressed: () {
+
+                  String emaill = email.text.trim();
+                  String password = pass.text.trim();
+
+                  FireBaseFunctions()
+                      .registerUser(email: emaill, pwd: password)
+                      .then((response) {
+                    if (response == null) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Fire_Login()));
+                    } else {
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(SnackBar(content: Text(response)));
+                    }
+                  });
+                },
                 child: const Text("Register Here")),
+
+
             const SizedBox(
               height: 15,
             ),
