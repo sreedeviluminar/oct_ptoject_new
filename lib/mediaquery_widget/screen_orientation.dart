@@ -10,9 +10,7 @@ class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// fetch the theme of device
-    bool isDarkTheme =
-        MediaQuery.of(context).platformBrightness == Brightness.dark;
-
+    bool isDarkTheme = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return MaterialApp(
       theme: isDarkTheme ? ThemeData.light() : ThemeData.dark(),
       home: Screenn(),

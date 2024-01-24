@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "941207950066",
+    "project_id": "mygsignin-1649328089383",
+    "storage_bucket": "mygsignin-1649328089383.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941207950066:android:c48504c5fe66b9d155b66b",
+        "android_client_info": {
+          "package_name": "com.luminar.oct_ptoject_new"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941207950066-ppqcgjg4m9elgjtmnbuhqg4hla3lt98v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJyk_z0ewu6mO0l5-yI3LQx75KQMOg0W8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "941207950066-ppqcgjg4m9elgjtmnbuhqg4hla3lt98v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
