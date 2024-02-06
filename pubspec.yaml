@@ -45,10 +45,9 @@ dependencies:
   firebase_storage:
   image_picker:
   path:
-
   shared_preferences: ^2.2.2
-
   google_maps_flutter: ^2.5.3
+  sqflite: ^2.3.2
 
 dev_dependencies:
   flutter_test:

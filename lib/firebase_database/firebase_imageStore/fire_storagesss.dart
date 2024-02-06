@@ -122,12 +122,12 @@ class _MediaStorageState extends State<MediaStorage> {
     }
   }
 
-  Future<List<Map<String, dynamic>>> loadMedia() async {
+    Future<List<Map<String, dynamic>>> loadMedia() async {
     List<Map<String, dynamic>> images = [];
     final ListResult result = await storage.ref().list();
     final List<Reference> allfiles = result.items;
 
-    await Future.forEach(allfiles, (singleFile) async {
+      await Future.forEach(allfiles, (singleFile) async {
       final String fileUrl = await singleFile.getDownloadURL();
       final FullMetadata metadata = await singleFile.getMetadata();
 
