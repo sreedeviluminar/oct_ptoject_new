@@ -104,7 +104,9 @@ class _HiveTodoState extends State<HiveTodo> {
               TextButton(
                   onPressed: () {
                     if (key == null) {
-                      createTask({'title': ctitle.text, 'cont': ccontent.text});
+                      createTask({
+                        'title': ctitle.text,
+                        'cont': ccontent.text});
                       ctitle.clear();
                       ccontent.clear();
                       Navigator.pop(context);
