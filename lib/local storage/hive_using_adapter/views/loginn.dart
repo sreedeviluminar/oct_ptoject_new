@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:oct_ptoject_new/local%20storage/hive_using_adapter/model/users.dart';
+import 'package:oct_ptoject_new/local%20storage/hive_using_adapter/service/hiveDB.dart';
 import 'package:oct_ptoject_new/local%20storage/hive_using_adapter/views/registerr.dart';
+
+import 'hive_home.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +22,6 @@ class Hive_Login extends StatefulWidget {
 }
 
 class _Hive_LoginState extends State<Hive_Login> {
-  final name_controller = TextEditingController();
   final email_controller = TextEditingController();
   final pass_controller = TextEditingController();
 
@@ -51,15 +52,42 @@ class _Hive_LoginState extends State<Hive_Login> {
                     hintText: "Password", border: OutlineInputBorder()),
               ),
             ),
-            ElevatedButton(onPressed: () {}, child: const Text("Login")),
-            const SizedBox(height: 20,),
-            ElevatedButton(onPressed: () {
-              Get.to(Hive_Register());
-            }, child: const Text("Not a User? Register Here.")),
-
+            ElevatedButton(
+                onPressed: () async {
+                  final users = await HiveDB.getallusers();
+                  validateLogin(users);
+                },
+                child: const Text("Login")),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Get.to(Hive_Register());
+                },
+                child: const Text("Not a User? Register Here.")),
           ],
         ),
       ),
     );
+  }
+
+  void validateLogin(List<Users> users) async{
+    final lemail = email_controller.text;
+    final lpass  = pass_controller.text;
+    //bool userExist = false;
+    if(lemail !="" && lpass != ""){
+      await Future.forEach(users, (sinleUser) {
+        var name = sinleUser.name;
+        if(lemail == sinleUser.email && lpass == sinleUser.password){
+          Get.offAll(Hive_Home(name));
+          Get.snackbar("Success", "User Login Success",backgroundColor: Colors.green);
+        }else{
+          Get.snackbar("Error", "Invalid login credentials",backgroundColor: Colors.red);
+        }
+      });
+    }else{
+      Get.snackbar("Error", "Fields Must not be Empty",backgroundColor: Colors.red);
+    }
   }
 }
