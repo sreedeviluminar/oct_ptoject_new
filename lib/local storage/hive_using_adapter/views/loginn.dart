@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:oct_ptoject_new/local%20storage/hive_using_adapter/model/users.dart';
 import 'package:oct_ptoject_new/local%20storage/hive_using_adapter/views/registerr.dart';
 
 void main() async{
-  //WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  await Hive.openBox('userdata');
+  Hive.registerAdapter(UsersAdapter());
+  await Hive.openBox<Users>('userdata');
   runApp(GetMaterialApp(home: Hive_Login(),));
 
 }

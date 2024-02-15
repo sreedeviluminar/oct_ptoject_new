@@ -4,7 +4,10 @@ import '../model/users.dart';
 class HiveDB {
 
   // HiveDB.constr();
-  // static HiveDB instance = HiveDB.constr();
+  // static HiveDB instance = HiveDB.con
+  //
+  //
+  // str();
   //
   // factory HiveDB() {
   //   return instance;
