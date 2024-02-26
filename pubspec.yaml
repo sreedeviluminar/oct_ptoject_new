@@ -56,6 +56,11 @@ dependencies:
   email_validator:
   provider: ^6.1.1
   cached_network_image:
+  # api integration using http
+  http: ^1.2.0
+  #get:
+  #cached_network_image:
+
 
 dev_dependencies:
   flutter_test:
