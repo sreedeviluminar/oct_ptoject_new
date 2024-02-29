@@ -60,6 +60,19 @@ dependencies:
   http: ^1.2.0
   #get:
   #cached_network_image:
+  #lottie:
+
+  # api integration using dio:
+  dio: ^5.4.1
+  top_snackbar_flutter: ^3.1.0
+  scrollable_positioned_list: ^0.3.8
+  internet_connection_checker: ^1.0.0+1
+  #lottie:
+  font_awesome_flutter:
+
+
+
+
 
 
 dev_dependencies:
