@@ -27,7 +27,9 @@ class DataController extends GetxController {
     if (response.statusCode == 200) {
       response.data.forEach((data) {
         datas.add(DataModel.fromJson(data));
+        print(datas);
       });
+      isLoading.value = false;
     }
   }
 
@@ -37,6 +39,7 @@ class DataController extends GetxController {
         index: datas.length,
         duration: const Duration(seconds: 4),
         curve: Curves.bounceInOut);
+    isListDown.value = true;
   }
 
   ///goto top of the listview
@@ -45,6 +48,8 @@ class DataController extends GetxController {
         index: 0,
         duration: const Duration(seconds: 4),
         curve: Curves.slowMiddle);
+    isListDown.value = false;
+
   }
 
   @override

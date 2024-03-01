@@ -69,6 +69,7 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   #lottie:
   font_awesome_flutter:
+  permission_handler:
 
 
 

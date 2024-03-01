@@ -29,9 +29,14 @@ class DioHome extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             height: double.infinity,
-            child: controller.isNetConnected.value
-                ? (controller.isLoading.value)
-                ? Center(child: Lottie.asset("assets/animation/Animation - 1709191722675.json")) : getData()
+            child: controller.isNetConnected.value == true
+                ? (controller.isLoading.value
+                    ? Center(
+                        child: Lottie.asset(
+                            "assets/animation/Animation - 1709191722675.json",
+                            height: 100,
+                            width: 200))
+                    : getData())
                 : noInternet(context),
           )),
     );
@@ -53,6 +58,7 @@ class DioHome extends StatelessWidget {
   RefreshIndicator getData(){
     return RefreshIndicator(
         child: ScrollablePositionedList.builder(
+            itemScrollController: controller.scrollController,
             itemCount: controller.datas.length,
             itemBuilder: (context, index) {
               return Card(
@@ -78,7 +84,7 @@ class DioHome extends StatelessWidget {
         children: [
           Lottie.asset("assets/animation/networkerror.json"),
           MaterialButton(onPressed: ()async{
-            if(await InternetConnectionChecker().hasConnection){
+            if(await InternetConnectionChecker().hasConnection == true){
               controller.fetchData();
             }else{
               showCustomSnackBar(context);
