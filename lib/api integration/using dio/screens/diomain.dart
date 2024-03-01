@@ -50,7 +50,7 @@ class DioHome extends StatelessWidget {
     );
   }
 
-  RefreshIndicator getData() async {
+  RefreshIndicator getData(){
     return RefreshIndicator(
         child: ScrollablePositionedList.builder(
             itemCount: controller.datas.length,
