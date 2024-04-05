@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
             if (constraints.maxWidth > 600) {
               // For wider screens, use GridView
               return GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 8,
